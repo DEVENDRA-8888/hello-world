@@ -1,6 +1,4 @@
-# Pull base image 
-From tomcat:11-jre11 
-
-# Maintainer 
-MAINTAINER "devendra999" 
-COPY ./webapp.war /opt/tomcat/webapps
+FROM tomcat:11.0-jre11
+ADD  target/webapp.war webapp.war
+EXPOSE 8090
+ENTRYPOINT ["java", "-war", "/webapp.war"]
