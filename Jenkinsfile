@@ -1,4 +1,5 @@
 FROM tomcat:11.0-jre11
-ADD  webapp/target/webapp.war webapp.war
+MAINTAINER "devendra999"
+COPY webapp/target/webapp.war /opt/tomcat/webapps
 EXPOSE 8090
-ENTRYPOINT ["java", "-war", "/webapp.war"]
+CMD ["catalina.sh", "run"]
